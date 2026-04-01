@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ANNiE Portfolio UX/UI Designer - ไปด้วยกัน ไปได้ไกล" />
+    <title>ANNiE | UX/UI Portfolio</title>
+    <style>
+      :root {
+        --primary: #4a90e2;
+        --secondary: #ffb300;
+        --bg: #f6f8fb;
+        --text: #1f2937;
+        --muted: #5b667b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", "Poppins", "Segoe UI", sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.5;
+      }
+
+      .container {
+        width: min(1200px, 92vw);
+        margin: 0 auto;
+        padding: 2rem 0;
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem 0;
+      }
+
+      .nav-logo {
+        font-weight: 700;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 1.25rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-menu a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 3rem 0 2rem;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(1.8rem, 5vw, 2.9rem);
+      }
+
+      .hero p {
+        color: var(--muted);
+        margin: 1rem 0 1.5rem;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(74, 144, 226, 0.15);
+        color: #1a3d7c;
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+        font-weight: 600;
+        width: fit-content;
+      }
+
+      .grid-3 {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .card {
+        background: white;
+        border-radius: 16px;
+        padding: 1.1rem;
+        border: 1px solid #e5e7eb;
+        box-shadow: rgba(15, 23, 42, 0.05) 0 4px 15px;
+      }
+
+      h2 {
+        margin-top: 0;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .tag {
+        background: #eef4ff;
+        color: #1f3a76;
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+      }
+
+      .project {
+        margin-bottom: 1rem;
+        background: white;
+        border-radius: 14px;
+        border: 1px solid #e5e7eb;
+        padding: 0.9rem;
+      }
+
+      .project h3 {
+        margin: 0;
+        font-size: 1.05rem;
+      }
+
+      .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.4rem;
+      }
+
+      .project-meta span {
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        border: 0;
+        cursor: pointer;
+        background: var(--primary);
+        color: white;
+        border-radius: 0.65rem;
+        padding: 0.65rem 1rem;
+        font-weight: 700;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+        text-decoration: none;
+      }
+
+      .btn-primary:hover,
+      .btn-primary:focus-visible {
+        background: #3679c1;
+        transform: translateY(-1px);
+      }
+
+      .footer {
+        padding: 1.8rem 0;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      form {
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border: 1px solid #d1d5db;
+        border-radius: 0.65rem;
+        padding: 0.8rem;
+        font-size: 0.95rem;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: 2px solid rgba(74, 144, 226, 0.4);
+        border-color: var(--primary);
+      }
+
+      @media (min-width: 768px) {
+        .hero {
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+        }
+
+        .hero-content {
+          max-width: 42rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container nav">
+        <div class="nav-logo">ANNiE</div>
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="container" id="home">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="pill">👋 ยินดีต้อนรับ</div>
+          <h1>ANNiE, UX/UI Designer</h1>
+          <p>ไปด้วยกัน ไปได้ไกล — ใช้มนุษย์เป็นศูนย์กลาง พร้อมประสบการณ์ใช้งานสวยงามและใช้ง่าย</p>
+          <a href="#contact" class="btn-primary">เริ่มพัฒนาโปรเจกต์ของคุณ</a>
+        </div>
+        <div>
+          <div class="card">
+            <h2>ประสบการณ์เด่น</h2>
+            <ul>
+              <li>ทำงานกับ SET (ตลาดหลักทรัพย์แห่งประเทศไทย)</li>
+              <li>Figma เป็นงานอดิเรก</li>
+              <li>จัดงาน UX workshop ในทีม</li>
+              <li>ผสมการเลี้ยงเด็กและการออกแบบอย่างมีสมดุล</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" style="margin-top: 2.5rem;">
+        <h2>About</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>วิธีทำงาน</h3>
+            <p>เริ่มจากผู้ใช้ก่อน โดยทำ Research, Persona, Journey map, Wireframe แล้วทดสอบก่อนสรุป UI ใหม่</p>
+          </div>
+          <div class="card">
+            <h3>ทักษะ</h3>
+            <div class="skills">
+              <span class="tag">UX Research</span>
+              <span class="tag">UI Design</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">Design System</span>
+              <span class="tag">Accessibility</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>เครื่องมือ</h3>
+            <div class="skills">
+              <span class="tag">Figma</span>
+              <span class="tag">Miro</span>
+              <span class="tag">Notion</span>
+              <span class="tag">HTML/CSS/JS</span>
+              <span class="tag">React</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" style="margin-top: 2.5rem;">
+        <h2>Work</h2>
+
+        <article class="project">
+          <h3>ระบบจองคอร์สเรียนออนไลน์</h3>
+          <div class="project-meta">
+            <span>UX Research + UI Design</span>
+            <span>Lead UX/UI</span>
+          </div>
+          <p>ออกแบบการใช้งานทีมเพื่อให้ผู้ใช้ค้นหาและลงทะเบียนใน 3 คลิก รวมทั้งลด churn 20%</p>
+          <ul>
+            <li>Persona, User Flow, Wireframe</li>
+            <li>Prototype ใน Figma และทดสอบ usability</li>
+            <li>ผลลัพธ์: conversion +15%</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>แอปจัดการงานสำหรับแม่บ้าน</h3>
+          <div class="project-meta">
+            <span>Redesign UI</span>
+            <span>Accessibility Focus</span>
+          </div>
+          <p>ปรับโฉม UI ให้ใช้งานง่ายอ่านง่าย ปุ่มใหญ่และสนับสนุนผู้ใช้ที่มีวิสัยทัศน์ต่ำ</p>
+          <ul>
+            <li>Time on task ลด 30%</li>
+            <li>Satisfaction score เพิ่มขึ้นอย่างมีนัยสำคัญ</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>Mood Tracker for Parents (Side Project)</h3>
+          <div class="project-meta">
+            <span>Minimal UI</span>
+            <span>Micro interactions</span>
+          </div>
+          <p>แอปสั้นเพื่อติดตามอารมณ์วันต่อวัน ใช้ palette อุ่นและการ์ดสบายตา</p>
+        </article>
+      </section>
+
+      <section id="contact" style="margin-top: 2.5rem;">
+        <h2>Contact</h2>
+        <p>สนใจร่วมงานหรือต้องการ UX audit? ส่งข้อความมาได้เลย!</p>
+        <div class="grid-3">
+          <div class="card">
+            <form id="contact-form" aria-label="Contact form">
+              <label>
+                ชื่อ
+                <input type="text" name="name" placeholder="ชื่อของคุณ" required />
+              </label>
+              <label>
+                อีเมล
+                <input type="email" name="email" placeholder="example@mail.com" required />
+              </label>
+              <label>
+                เรื่อง
+                <input type="text" name="subject" placeholder="เช่น งาน UX/UI" required />
+              </label>
+              <label>
+                ข้อความ
+                <textarea name="message" rows="5" placeholder="เล่าเกี่ยวกับโปรเจกต์ของคุณ" required></textarea>
+              </label>
+              <button type="submit" class="btn-primary">ส่งข้อความ</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h3>Social</h3>
+            <p>
+              LinkedIn, Behance, Dribbble, GitHub
+            </p>
+            <p class="muted">(วางลิงก์จริงเมื่อพร้อม)</p>
+          </div>
+
+          <div class="card">
+            <h3>CTA</h3>
+            <p>ถ้าคุณกำลังมองหา UX/UI Designer ที่เริ่มจากความเข้าใจผู้ใช้ ข้ามเส้นทางมาคุยกันครับ</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 ANNiE. Designed with empathy and clarity.</p>
+    </footer>
+
+    <script>
+      document.getElementById("contact-form").addEventListener("submit", function (evt) {
+        evt.preventDefault();
+        alert("ขอบคุณสำหรับข้อความของคุณ! เดี๋ยว ANNiE จะติดต่อกลับครับ");
+        evt.target.reset();
+      });
+    </script>
+  </body>
+</html>
