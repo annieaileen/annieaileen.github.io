@@ -7,15 +7,22 @@
     <title>ANNiE | UX/UI Portfolio</title>
     <style>
       :root {
-        --primary: #4a90e2;
-        --secondary: #ffb300;
-        --bg: #f6f8fb;
+        --primary: #00BCD4;
+        --secondary: #FFD700;
+        --accent: #FF6F61;
+        --bg: linear-gradient(180deg, #eafcff 0%, #f7fbff 45%, #fff9f2 100%);
         --text: #1f2937;
         --muted: #5b667b;
+        --surface: #ffffff;
+        --surface-soft: rgba(255, 255, 255, 0.92);
       }
 
       * {
         box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
 
       body {
@@ -23,7 +30,8 @@
         font-family: "Inter", "Poppins", "Segoe UI", sans-serif;
         color: var(--text);
         background: var(--bg);
-        line-height: 1.5;
+        line-height: 1.6;
+        min-height: 100vh;
       }
 
       .container {
@@ -36,9 +44,9 @@
         position: sticky;
         top: 0;
         z-index: 20;
-        background: rgba(255, 255, 255, 0.82);
+        background: rgba(255, 255, 255, 0.88);
         backdrop-filter: blur(8px);
-        border-bottom: 1px solid #e5e7eb;
+        border-bottom: 1px solid rgba(0, 188, 212, 0.18);
       }
 
       .nav {
@@ -67,18 +75,55 @@
         text-decoration: none;
         color: var(--text);
         font-weight: 600;
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+
+      .nav-menu a:hover,
+      .nav-menu a:focus-visible {
+        color: var(--primary);
+        transform: translateY(-1px);
       }
 
       .hero {
+        position: relative;
         display: grid;
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 4rem 0 3rem;
+        padding: 4rem 2rem 3rem;
+        background: var(--surface-soft);
+        border-radius: 28px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 188, 212, 0.14);
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          radial-gradient(circle at 14% 18%, rgba(0, 188, 212, 0.16), transparent 15%),
+          radial-gradient(circle at 86% 12%, rgba(255, 215, 0, 0.15), transparent 12%),
+          radial-gradient(circle at 75% 82%, rgba(0, 188, 212, 0.12), transparent 20%),
+          radial-gradient(circle at 30% 92%, rgba(0, 188, 212, 0.14), transparent 18%),
+          linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.3) 35%, transparent 55%);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 120px;
+        background: radial-gradient(circle at 50% 0, rgba(0, 188, 212, 0.18), transparent 40%), linear-gradient(180deg, transparent 0%, rgba(0, 188, 212, 0.12) 40%, rgba(255, 255, 255, 0.88) 100%);
+        pointer-events: none;
       }
 
       .hero h1 {
         margin: 0;
-        font-size: clamp(1.8rem, 5vw, 2.9rem);
+        font-size: clamp(2rem, 5vw, 3.4rem);
       }
 
       .hero p {
@@ -90,9 +135,9 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        background: rgba(74, 144, 226, 0.15);
-        color: #1a3d7c;
-        padding: 0.45rem 0.8rem;
+        background: rgba(0, 188, 212, 0.15);
+        color: #007a9c;
+        padding: 0.55rem 0.95rem;
         border-radius: 999px;
         font-weight: 600;
         width: fit-content;
@@ -105,11 +150,11 @@
       }
 
       .card {
-        background: white;
+        background: var(--surface);
         border-radius: 16px;
         padding: 1.5rem;
-        border: 1px solid #e5e7eb;
-        box-shadow: rgba(15, 23, 42, 0.05) 0 4px 15px;
+        border: 1px solid rgba(0, 188, 212, 0.12);
+        box-shadow: rgba(15, 23, 42, 0.06) 0 18px 30px -20px;
       }
 
       h2 {
@@ -123,8 +168,8 @@
       }
 
       .tag {
-        background: #eef4ff;
-        color: #1f3a76;
+        background: rgba(0, 188, 212, 0.12);
+        color: #027a99;
         font-size: 0.8rem;
         font-weight: 600;
         padding: 0.35rem 0.7rem;
@@ -133,9 +178,9 @@
 
       .project {
         margin-bottom: 1rem;
-        background: white;
+        background: var(--surface);
         border-radius: 14px;
-        border: 1px solid #e5e7eb;
+        border: 1px solid rgba(0, 188, 212, 0.1);
         padding: 0.9rem;
       }
 
@@ -158,27 +203,37 @@
 
       .btn-primary {
         display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
         border: 0;
         cursor: pointer;
-        background: var(--primary);
+        background: linear-gradient(135deg, #00BCD4 0%, #008EAB 100%);
         color: white;
-        border-radius: 0.65rem;
-        padding: 0.65rem 1rem;
+        border-radius: 0.75rem;
+        padding: 0.85rem 1.2rem;
         font-weight: 700;
-        transition: transform 0.2s ease, background-color 0.2s ease;
+        transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
         text-decoration: none;
       }
 
       .btn-primary:hover,
       .btn-primary:focus-visible {
-        background: #3679c1;
-        transform: translateY(-1px);
+        background: linear-gradient(135deg, #008EAB 0%, #007993 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px rgba(0, 188, 212, 0.18);
+      }
+
+      .btn-primary:focus-visible {
+        outline: 3px solid rgba(0, 188, 212, 0.4);
+        outline-offset: 2px;
       }
 
       .footer {
         padding: 1.8rem 0;
         text-align: center;
         color: var(--muted);
+        border-top: 1px solid rgba(0, 188, 212, 0.12);
       }
 
       form {
@@ -189,16 +244,41 @@
       input,
       textarea {
         width: 100%;
-        border: 1px solid #d1d5db;
+        border: 1px solid rgba(0, 188, 212, 0.2);
         border-radius: 0.65rem;
-        padding: 0.8rem;
-        font-size: 0.95rem;
+        padding: 0.9rem;
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.96);
       }
 
       input:focus,
       textarea:focus {
-        outline: 2px solid rgba(74, 144, 226, 0.4);
-        border-color: var(--primary);
+        outline: 3px solid rgba(0, 188, 212, 0.35);
+        border-color: rgba(0, 188, 212, 0.7);
+      }
+
+      @media (max-width: 767px) {
+        .container {
+          padding: 1.5rem 0;
+        }
+
+        .hero {
+          padding: 3rem 1.25rem 2.5rem;
+          gap: 1.5rem;
+        }
+
+        .nav-menu {
+          flex-wrap: wrap;
+          gap: 0.9rem;
+        }
+
+        .btn-primary {
+          width: fit-content;
+        }
+
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (min-width: 768px) {
